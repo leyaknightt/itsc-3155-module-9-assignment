@@ -1,11 +1,12 @@
 from flask import Flask, redirect, render_template, request
-
 from src.repositories.movie_repository import get_movie_repository
+from tabulate import tabulate
 
 
 app = Flask(__name__)
 
 movie_repository = get_movie_repository()
+movies = {}
 
 # movie_repository.create_movie("black panther", "unknown", 10)
 # movie_repository.create_movie("avengers", "unknown", 9)
@@ -18,6 +19,7 @@ def index():
 @app.get('/movies')
 def list_all_movies():
     # TODO: Feature 1
+    
     return render_template('list_all_movies.html', list_movies_active=True)
 
 
@@ -28,7 +30,16 @@ def create_movies_form():
 
 @app.post('/movies')
 def create_movie():
+    
     # TODO: Feature 2
+    title = request.form.get('movieTitle', type = str)
+    director = request.form.get('director', type = str)
+    rating = request.form['rating']
+    
+    for i in range(1):
+        key = title
+        movies.setdefault(key, [])
+        movies[key].append(director,rating)
     # After creating the movie in the database, we redirect to the list all movies page
     return redirect('/movies')
 

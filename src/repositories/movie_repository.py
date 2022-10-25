@@ -17,7 +17,9 @@ def get_movie_repository():
             """Simply return all movies from the in-memory database"""
             return self._db
 
+
         def get_movie_by_title(self, title: str) ->Union[Movie, None]:
+
             """Get a single movie by its title or None if it does not exist"""
             # Perform a linear search through the in-memory database
             for movie in self._db:
