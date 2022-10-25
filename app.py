@@ -4,6 +4,7 @@ from src.repositories.movie_repository import get_movie_repository
 app = Flask(__name__)
 
 movie_repository = get_movie_repository()
+movies = {}
 
 
 @app.get('/')
@@ -24,13 +25,13 @@ def create_movies_form():
 
 @app.post('/movies')
 def create_movie():
+    
+    # TODO: Feature 2
     title = request.form.get('movieTitle', type = str)
     director = request.form.get('director', type = str)
     rating = request.form['rating']
-    # TODO: Feature 2
-    n = 1
-    movies = {}
-    for i in range(n):
+    
+    for i in range(1):
         key = title
         movies.setdefault(key, [])
         movies[key].append(director,rating)
