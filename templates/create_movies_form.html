@@ -6,4 +6,24 @@
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
 <!-- TODO: Feature 2 -->
+<form>
+    <div class="form-group">
+        <label for="movieTitle">Movie Title:</label>
+        <input type="text" id = "movieTitle" name = "movieTitle">
+        <p></p>
+        <label for="director">Directed By:</label>
+        <input type="text" id = "director" name = "director" >
+
+        <p>What would you rate this movie? </p>
+        <div class="btn-group-toggle" data-toggle="buttons">
+            <input type="radio" name="rating" id="option1" value="option1"> 1 </input><br>
+            <input type="radio" name="rating" id="option2" value="option2"> 2 </input><br>
+            <input type="radio" name="rating" id="option3" value="option3"> 3 </input><br>
+            <input type="radio" name="rating" id="option4" value="option4"> 4 </input><br>
+            <input type="radio" name="rating" id="option5" value="option5"> 5 </input><br>
+        </div>
+        <input type="submit" value="Submit">
+    </div>
+
+</form>
 {% endblock %}

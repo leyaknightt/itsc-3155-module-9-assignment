@@ -1,5 +1,4 @@
-from flask import Flask, redirect, render_template
-
+from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import get_movie_repository
 
 app = Flask(__name__)
@@ -25,7 +24,16 @@ def create_movies_form():
 
 @app.post('/movies')
 def create_movie():
+    title = request.form.get('movieTitle', type = str)
+    director = request.form.get('director', type = str)
+    rating = request.form['rating']
     # TODO: Feature 2
+    n = 1
+    movies = {}
+    for i in range(n):
+        key = title
+        movies.setdefault(key, [])
+        movies[key].append(director,rating)
     # After creating the movie in the database, we redirect to the list all movies page
     return redirect('/movies')
 
