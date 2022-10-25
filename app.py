@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import get_movie_repository
+from tabulate import tabulate
 
 app = Flask(__name__)
 
@@ -15,6 +16,7 @@ def index():
 @app.get('/movies')
 def list_all_movies():
     # TODO: Feature 1
+    
     return render_template('list_all_movies.html', list_movies_active=True)
 
 
