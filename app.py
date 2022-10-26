@@ -1,6 +1,5 @@
 from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import get_movie_repository
-from tabulate import tabulate
 
 
 app = Flask(__name__)
@@ -18,7 +17,10 @@ def index():
 @app.get('/movies')
 def list_all_movies():
     # TODO: Feature 1
-    
+    table_data = []
+    for key in movies:
+        table_data.append([key, movies[key]])
+    #htmlcode = html.table(table_data)
     return render_template('list_all_movies.html', list_movies_active=True)
 
 
@@ -33,8 +35,7 @@ def create_movie():
     # TODO: Feature 2
     title = request.form.get('movieTitle', type = str)
     director = request.form.get('director', type = str)
-    rating = request.form['rating']
-    
+    rating = request.form['rating']  
     for i in range(1):
         key = title
         movies.setdefault(key, [])
