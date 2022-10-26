@@ -6,7 +6,6 @@ from tabulate import tabulate
 app = Flask(__name__)
 
 movie_repository = get_movie_repository()
-movies = {}
 
 # movie_repository.create_movie("black panther", "unknown", 10)
 # movie_repository.create_movie("avengers", "unknown", 9)
